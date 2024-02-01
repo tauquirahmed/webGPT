@@ -35,7 +35,7 @@ def get_conversation_chain(vectorstore):
 
 
 def get_vectorstore(text_chunks):
-    api_key = os.environ["GOOGLE_API_KEY"]
+    api_key = st.secrets["GOOGLE_API_KEY"]
     palm.configure(api_key=api_key)
     embeddings = GooglePalmEmbeddings()
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
